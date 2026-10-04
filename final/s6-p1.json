@@ -1,0 +1,397 @@
+[
+  {
+    "scenario": "s6",
+    "policy": "p1",
+    "repetition": 1,
+    "seed": 374967567,
+    "duration_seconds": 3.0232183159999977,
+    "correctness_pass": true,
+    "CorrectCommitThroughput": 4.30005333428921,
+    "successful_commits": 13,
+    "data_commits": 13,
+    "maintenance_commits": 0,
+    "planned_data_operations": 26,
+    "committed_data_operations": 13,
+    "completion_ratio": 0.5,
+    "conflict_count": 15,
+    "retry_count": 0,
+    "p95_commit_latency_seconds": 0.5424022770000079,
+    "aborted_operations": [
+                  {
+                    "operation_id": "s6-374967567-B-1",
+                    "writer": "B",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.5306225769999742,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-B-1",
+                    "physical_attempt_bytes": 3646
+                  },
+                  {
+                    "operation_id": "s6-374967567-B-2",
+                    "writer": "B",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.29533408800000416,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-B-2",
+                    "physical_attempt_bytes": 4194
+                  },
+                  {
+                    "operation_id": "s6-374967567-B-9",
+                    "writer": "B",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.2699173949999931,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-B-9",
+                    "physical_attempt_bytes": 4396
+                  },
+                  {
+                    "operation_id": "s6-374967567-B-10",
+                    "writer": "B",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.20656309599996803,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-B-10",
+                    "physical_attempt_bytes": 4417
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-1",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.5424022770000079,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-1",
+                    "physical_attempt_bytes": 3646
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-2",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.29237868799998523,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-2",
+                    "physical_attempt_bytes": 4194
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-3",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.43773378299999877,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-3",
+                    "physical_attempt_bytes": 4396
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-4",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.2045330969999668,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-4",
+                    "physical_attempt_bytes": 4417
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-5",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.19711699699996643,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-5",
+                    "physical_attempt_bytes": 4417
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-6",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.19998689599998443,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-6",
+                    "physical_attempt_bytes": 4417
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-7",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.22767559599998322,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-7",
+                    "physical_attempt_bytes": 4417
+                  },
+                  {
+                    "operation_id": "s6-374967567-C-8",
+                    "writer": "C",
+                    "kind": "increment",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.22504169600000523,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-C-8",
+                    "physical_attempt_bytes": 4417
+                  },
+                  {
+                    "operation_id": "s6-374967567-D-1",
+                    "writer": "D",
+                    "kind": "compact",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.7226884689999906,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-D-1",
+                    "physical_attempt_bytes": 3389
+                  },
+                  {
+                    "operation_id": "s6-374967567-D-2",
+                    "writer": "D",
+                    "kind": "compact",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.3746923840000136,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-D-2",
+                    "physical_attempt_bytes": 4048
+                  },
+                  {
+                    "operation_id": "s6-374967567-E-1",
+                    "writer": "E",
+                    "kind": "delete",
+                    "partition": "p0",
+                    "status": "aborted_conflict",
+                    "attempts": 1,
+                    "conflicts": 1,
+                    "latency_seconds": 0.5034626790000516,
+                    "bytes_written": 0,
+                    "error": "snapshot changed while committing s6-374967567-E-1",
+                    "physical_attempt_bytes": 3600
+                  }
+                ],
+    "timed_out_workers": [
+
+               ],
+    "failed_workers": [
+
+              ],
+    "worker_errors": [
+
+             ],
+    "LostUpdateCount": 0,
+    "WrongFinalRows": 0,
+    "oracle": {
+            "LostUpdateCount": 0,
+            "WrongFinalRows": 0,
+            "missing": [
+
+                  ],
+            "unexpected": [
+
+                   ]
+          },
+    "physical_bytes_written": 113196,
+    "committed_logical_intent_bytes": 11455,
+    "write_amplification": 9.881798341335662,
+    "physical_file_count": 93,
+    "active_file_count": 71,
+    "retained_old_or_orphan_file_count": 22,
+    "final_metadata_version": 13,
+    "mvcc_delta_commits": 0,
+    "tracked_row_versions": 8125,
+    "commit_history": [
+                {
+                  "version": 1,
+                  "operation_id": "s6-374967567-A-1",
+                  "writer": "A",
+                  "kind": "append",
+                  "partition": "p0",
+                  "validation_scope": "append-rebase",
+                  "validated_row_count": 0,
+                  "bytes_written": 3195,
+                  "committed_at_ns": 1791117057883962423
+                },
+                {
+                  "version": 2,
+                  "operation_id": "s6-374967567-A-2",
+                  "writer": "A",
+                  "kind": "append",
+                  "partition": "p0",
+                  "validation_scope": "append-rebase",
+                  "validated_row_count": 0,
+                  "bytes_written": 3195,
+                  "committed_at_ns": 1791117057986700919
+                },
+                {
+                  "version": 3,
+                  "operation_id": "s6-374967567-A-3",
+                  "writer": "A",
+                  "kind": "append",
+                  "partition": "p0",
+                  "validation_scope": "append-rebase",
+                  "validated_row_count": 0,
+                  "bytes_written": 3195,
+                  "committed_at_ns": 1791117058115110513
+                },
+                {
+                  "version": 4,
+                  "operation_id": "s6-374967567-A-4",
+                  "writer": "A",
+                  "kind": "append",
+                  "partition": "p0",
+                  "validation_scope": "append-rebase",
+                  "validated_row_count": 0,
+                  "bytes_written": 3195,
+                  "committed_at_ns": 1791117058232074308
+                },
+                {
+                  "version": 5,
+                  "operation_id": "s6-374967567-A-5",
+                  "writer": "A",
+                  "kind": "append",
+                  "partition": "p0",
+                  "validation_scope": "append-rebase",
+                  "validated_row_count": 0,
+                  "bytes_written": 3195,
+                  "committed_at_ns": 1791117058312084105
+                },
+                {
+                  "version": 6,
+                  "operation_id": "s6-374967567-B-3",
+                  "writer": "B",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4396,
+                  "committed_at_ns": 1791117058787535585
+                },
+                {
+                  "version": 7,
+                  "operation_id": "s6-374967567-B-4",
+                  "writer": "B",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4396,
+                  "committed_at_ns": 1791117058992885881
+                },
+                {
+                  "version": 8,
+                  "operation_id": "s6-374967567-B-5",
+                  "writer": "B",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4396,
+                  "committed_at_ns": 1791117059209661577
+                },
+                {
+                  "version": 9,
+                  "operation_id": "s6-374967567-B-6",
+                  "writer": "B",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4396,
+                  "committed_at_ns": 1791117059425227774
+                },
+                {
+                  "version": 10,
+                  "operation_id": "s6-374967567-B-7",
+                  "writer": "B",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4396,
+                  "committed_at_ns": 1791117059656752270
+                },
+                {
+                  "version": 11,
+                  "operation_id": "s6-374967567-B-8",
+                  "writer": "B",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4396,
+                  "committed_at_ns": 1791117059895409266
+                },
+                {
+                  "version": 12,
+                  "operation_id": "s6-374967567-C-9",
+                  "writer": "C",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4417,
+                  "committed_at_ns": 1791117060129283562
+                },
+                {
+                  "version": 13,
+                  "operation_id": "s6-374967567-C-10",
+                  "writer": "C",
+                  "kind": "increment",
+                  "partition": "p0",
+                  "validation_scope": "partition",
+                  "validated_row_count": 0,
+                  "bytes_written": 4417,
+                  "committed_at_ns": 1791117060342062558
+                }
+              ],
+    "environment": {
+              "python": "3.12.15 (main, Oct  3 2026, 01:03:07) [Clang 22.1.3 ]",
+              "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+              "polars": "1.34.0"
+            }
+  }
+]
