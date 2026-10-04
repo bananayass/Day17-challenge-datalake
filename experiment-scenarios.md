@@ -6,7 +6,7 @@ This draft operationalizes the minimum constraints in [baseline.md](baseline.md)
 
 How much correct commit throughput can concurrent inserts, overlapping mutations, and maintenance achieve under default behavior? Can narrower write scopes, safe retries, and selective coordination improve throughput while preserving every accepted logical operation?
 
-Run the plan on a pinned Delta Lake or Iceberg configuration. If comparing both formats, execute the same logical workloads separately and report their engine, catalog, storage, and maintenance differences.
+Run the first version locally with Polars and Parquet. The scripts include a small optimistic commit simulator because Polars does not provide table transactions. Results describe this simulator rather than Delta Lake or Iceberg behavior.
 
 ## Minimum-constraint coverage
 
@@ -25,7 +25,7 @@ Suggested starting scale, to calibrate before measured runs:
 - Eight partitions, named p0 through p7.
 - 1,000 seeded counter rows per partition; all counters start at zero.
 - Columns: partition_id, row_kind, row_id, counter_value, event_payload. Counter and event rows have distinct IDs and row_kind values.
-- Seed approximately ten small data files per partition so maintenance has real rewrite work. Verify and record the actual file layout; engines may not produce the requested file count exactly.
+- Seed approximately ten small Parquet files per partition so maintenance has real rewrite work. Verify and record the actual file layout.
 - Generate every append batch and counter-update intent before the run. Record run_id, operation_id, writer_id, partition, target keys, payload/delta, and scheduling seed in an immutable input file.
 - Use a common initial snapshot/file layout for every policy within a scenario. Recreate it before each repetition.
 
@@ -82,7 +82,7 @@ Use S3, but D compacts p0. Compare directly with S3 to quantify maintenance inte
 
 Expected logical behavior: the same counter sums and event rows as the accepted data operations require. Maintenance may fail validation or force retries; it must never erase accepted updates.
 
-For Iceberg, add manifest rewrite as a separate maintenance subscenario. Do not mix it with compaction in one result because it changes metadata rather than data files.
+Add local manifest rewrite as a separate maintenance subscenario. Do not mix it with compaction in one result because it changes metadata rather than data files.
 
 ## Policies to compare
 
@@ -94,17 +94,17 @@ For Iceberg, add manifest rewrite as a separate maintenance subscenario. Do not 
 | P3: Selective coordination | P2 plus queues/ownership only for conflicting partitions or keys; coordinate maintenance with the affected region |
 | P4: Full serialization control | One transaction at a time across all four workers, using the same bounded retry/idempotency settings as P2 |
 
-Record actual internal retry defaults in P0. An internal metadata-commit retry is different from re-executing a logical update. Capture these counts separately where the engine exposes them; label unavailable internal counts as unavailable.
+P0 performs no application retry. The simulator exposes every validation conflict directly, so record retries and full logical re-executions separately.
 
 For P2–P4, pin an application retry budget, for example five retries with a 100 ms initial delay, doubling up to 2 seconds with jitter. These are proposed settings, not engine defaults. Resolve unknown commit outcomes before retrying.
 
-Retrying counter increments requires more than an external audit log. One possible design is a per-writer sequence marker updated atomically with the counter in the same table row; each writer processes sequences in order and retries the same sequence. Validate that design for the chosen engine before measured runs. Delta transaction identifiers apply to supported write APIs and must not be assumed to make every SQL MERGE idempotent.
+Retrying counter increments requires more than an external audit log. The local scripts update a per-writer sequence marker atomically with each counter and process each writer's sequences in order.
 
 P4 measures the throughput cost of serialization. Compare P3 against both P2 and P4; do not infer that queueing wins from correctness alone.
 
 ## Independent oracle and pass/fail rules
 
-Maintain three evidence sets: immutable planned operations, worker attempt receipts, and independently verified durable commit identities. Use engine history/snapshot metadata and operation attribution to resolve receipts; classify unresolved outcomes explicitly.
+Maintain three evidence sets: immutable planned operations, worker attempt receipts, and independently verified durable commit identities. Use the simulator's atomic commit history and operation IDs to resolve receipts; classify unresolved outcomes explicitly.
 
 The oracle computes the expected final state from initial rows and distinct accepted logical operations:
 
@@ -160,11 +160,11 @@ Add a fifth worker deleting predetermined seeded keys that other writers do not 
 
 If testing delete-versus-reinsertion, first define an ordering policy. Replay accepted operations in verified commit order or enforce a persistent deletion rule. Neither table format's ACID property alone means a later append can never recreate a deleted key.
 
-## Storage and maintenance validity
+## Local storage and maintenance validity
 
-Use supported concurrent storage/catalog configurations. Delta documentation advises against local-filesystem concurrency tests; multi-driver S3 writes require the documented LogStore configuration. Iceberg requires a catalog capable of its atomic commit protocol. Record the exact runtime and backend.
+Run on a local filesystem that supports atomic replacement and POSIX advisory locks. Record the OS, filesystem, Python version, and Polars version. Do not generalize the results to Delta Lake or Iceberg.
 
-Keep snapshot expiration and orphan cleanup outside the primary writer scenarios. After oracle verification, they can be separate safety/retention experiments. Orphan retention must exceed the longest in-progress write; use dry-run inspection where supported. These cleanup operations do not substitute for compaction or mutation conflict testing.
+Keep deletion of retained snapshots and old files outside the primary writer scenarios. Perform cleanup only after oracle verification; cleanup does not substitute for compaction or mutation conflict testing.
 
 ## Evidence to save
 

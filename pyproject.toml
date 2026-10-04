@@ -1,0 +1,7 @@
+[project]
+name = "data-lakehouse-arch"
+version = "0.1.0"
+description = "Local concurrent-writer experiments with Polars"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["polars==1.34.0"]
