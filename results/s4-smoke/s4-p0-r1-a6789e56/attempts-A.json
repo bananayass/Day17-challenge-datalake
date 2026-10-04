@@ -1,0 +1,67 @@
+[
+  {
+    "operation_id": "s4-374967567-A-1",
+    "writer": "A",
+    "kind": "append",
+    "partition": "p0",
+    "status": "committed",
+    "attempts": 1,
+    "conflicts": 0,
+    "latency_seconds": 0.7430036790000116,
+    "bytes_written": 2946,
+    "error": null,
+    "physical_attempt_bytes": 2946
+  },
+  {
+    "operation_id": "s4-374967567-A-2",
+    "writer": "A",
+    "kind": "append",
+    "partition": "p0",
+    "status": "committed",
+    "attempts": 1,
+    "conflicts": 0,
+    "latency_seconds": 0.023773950999995463,
+    "bytes_written": 2946,
+    "error": null,
+    "physical_attempt_bytes": 2946
+  },
+  {
+    "operation_id": "s4-374967567-A-3",
+    "writer": "A",
+    "kind": "append",
+    "partition": "p0",
+    "status": "committed",
+    "attempts": 1,
+    "conflicts": 0,
+    "latency_seconds": 0.024777180000000953,
+    "bytes_written": 2946,
+    "error": null,
+    "physical_attempt_bytes": 2946
+  },
+  {
+    "operation_id": "s4-374967567-A-4",
+    "writer": "A",
+    "kind": "append",
+    "partition": "p0",
+    "status": "committed",
+    "attempts": 1,
+    "conflicts": 0,
+    "latency_seconds": 0.027777912999994214,
+    "bytes_written": 2946,
+    "error": null,
+    "physical_attempt_bytes": 2946
+  },
+  {
+    "operation_id": "s4-374967567-A-5",
+    "writer": "A",
+    "kind": "append",
+    "partition": "p0",
+    "status": "committed",
+    "attempts": 1,
+    "conflicts": 0,
+    "latency_seconds": 0.02423256500000548,
+    "bytes_written": 2946,
+    "error": null,
+    "physical_attempt_bytes": 2946
+  }
+]

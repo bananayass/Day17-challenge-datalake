@@ -1,0 +1,28 @@
+[
+  {
+    "operation_id": "s4-374967567-D-1",
+    "writer": "D",
+    "kind": "compact",
+    "partition": "p0",
+    "status": "committed",
+    "attempts": 1,
+    "conflicts": 0,
+    "latency_seconds": 3.3685636039999878,
+    "bytes_written": 3623,
+    "error": null,
+    "physical_attempt_bytes": 3623
+  },
+  {
+    "operation_id": "s4-374967567-D-2",
+    "writer": "D",
+    "kind": "compact",
+    "partition": "p0",
+    "status": "committed",
+    "attempts": 1,
+    "conflicts": 0,
+    "latency_seconds": 1.176295495000005,
+    "bytes_written": 3754,
+    "error": null,
+    "physical_attempt_bytes": 3754
+  }
+]

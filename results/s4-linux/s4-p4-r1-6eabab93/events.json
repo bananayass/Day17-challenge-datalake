@@ -1,0 +1,5110 @@
+[
+  {
+    "at": 0.17974002700000824,
+    "pid": 480,
+    "worker": "A",
+    "status": "READY",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.313398823,
+    "pid": 493,
+    "worker": "C",
+    "status": "READY",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.31568558900002586,
+    "pid": 492,
+    "worker": "B",
+    "status": "READY",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.33211038900000744,
+    "pid": 494,
+    "worker": "D",
+    "status": "READY",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.33273709300001997,
+    "pid": 494,
+    "worker": "D",
+    "status": "RUNNING",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.33288797400001613,
+    "pid": 480,
+    "worker": "A",
+    "status": "RUNNING",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.3329332000000136,
+    "pid": 492,
+    "worker": "B",
+    "status": "RUNNING",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.3329707900000187,
+    "pid": 493,
+    "worker": "C",
+    "status": "RUNNING",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 0.34087180200000944,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-1",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 0.3489685850000228,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-1",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 0.3519880480000097,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-1",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 0.3520820530000037,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-1",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 1.9117556510000213,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-1",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 1.9219266520000247,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-2",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 3.15204553800001,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-1",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 3.162829361000007,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-2",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 4.409343970999998,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-1",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 4.423787655000012,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-2",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.58333797200001,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-1",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.59376967,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-2",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.5977625579999994,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-2",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.600591090000023,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-2",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.607598012000011,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-3",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.612546594000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-2",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.619357612000016,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-3",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.624052653000007,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-2",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.627673427000019,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-3",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.632756734000026,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-3",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.635702898000005,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-3",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.6396009850000155,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-4",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.643099806999999,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-3",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.655810978000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-3",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.6586938800000155,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-4",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.666397836000016,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-3",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.673616754000022,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-4",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.677464852000014,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-4",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.67765412,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-4",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.6851588200000265,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-4",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.695088489,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-5",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.713818843000013,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-5",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.732364912000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-4",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.745881225000005,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-4",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.751942205000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-5",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.757194747,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-5",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.764279716000004,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-5",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.764676857000012,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-5",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.775202615000012,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-6",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.778793929000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-5",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.782683229000014,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-6",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.789857862000019,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-5",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.792548326000002,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-6",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.800962191000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-6",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.803680521000018,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-7",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.806576638000024,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-6",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.808081275000006,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-6",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.8177396490000035,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-7",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.82115957900001,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-6",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.827691682000022,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-7",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.833064012000023,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-7",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.844393683000021,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-6",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.848567345000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-8",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.85122361400002,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-7",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.853190206000022,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-8",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.858667238999999,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-7",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.863730179000015,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-7",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.874802282000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-8",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.881975838000017,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-8",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.882386350000019,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-8",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.887512072000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-9",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.8956093150000015,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-7",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.8975722070000245,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-8",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.90102188900002,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-9",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.907005254000012,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-8",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.918149811000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-9",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.91866034100002,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-9",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.924790180000002,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-10",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.928697833000001,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-8",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.935563375000015,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-9",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.9433745620000025,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-9",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.946985731000012,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-10",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.9488324700000135,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-9",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.953700501000014,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-10",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.95919673100002,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-10",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.969016074000024,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-11",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.970077036000021,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-9",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.977719242000006,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-10",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.990201711000026,
+    "pid": 494,
+    "worker": "D",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-D-10",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.991047081000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-10",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.991974751000015,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-11",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 5.997353029999999,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-11",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.002424434000005,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-11",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.005474136000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-12",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.013911552000025,
+    "pid": 494,
+    "worker": "D",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-D-10",
+    "kind": "compact",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.01395122400001,
+    "pid": 494,
+    "worker": "D",
+    "status": "DONE",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 6.02102119700001,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-11",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.030364898000016,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-12",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.0351194570000075,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-11",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.036234672000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-12",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.046493966000014,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-12",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.054034791000021,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-12",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.061265168000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-13",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.0677129340000135,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-12",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.070393724000013,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-13",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.079721873000011,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-13",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.080801627,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-13",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.086865623000023,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-13",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.089992930000022,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-14",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.0968123050000145,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-14",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.0987295840000115,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-13",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.109592641000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-14",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.109902899000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-15",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.110007662000015,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-14",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.116523577999999,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-14",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.129462950000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-15",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.133259639000016,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-15",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.140664379000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-16",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.141642321000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-14",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.142894395000013,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-15",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.148737559000011,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-15",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.149344259000003,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-16",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.161476398000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-16",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.172678471000012,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-15",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.177782255000011,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-17",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.179831439000026,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-16",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.185063360000015,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-16",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.186425994000018,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-17",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.1925114940000014,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-17",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.203928852000018,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-16",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.21009354100002,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-18",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.211037166000011,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-17",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.222437014000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-17",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.222804463000017,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-18",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.224150860999998,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-18",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.232451208000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-19",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.234813710000026,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-17",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.2418708300000105,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-18",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.245670258000018,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-19",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.252763345000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-18",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.254267319000007,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-19",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.260817707000001,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-20",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.261083581000008,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-19",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.274177071000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-18",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.277405045000023,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-20",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.284893887999999,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-20",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.287417919000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-19",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.29202817700002,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-20",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.296435461000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-21",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.300062749000006,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-21",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.304940901000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-19",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.316576533000017,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-21",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.318728012000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-20",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.3238626039999986,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-21",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.333158870000005,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-22",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.337981593000023,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-20",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.338056049000016,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-22",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.3409194090000085,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-21",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.361283331999999,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-22",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.362315195000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-23",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.369366008000014,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-22",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.384945316,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-23",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.388564155000012,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-21",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.403791190000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-23",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.407934718000007,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-22",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.411612011000017,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-23",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.4129998940000235,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-24",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.419518977000024,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-24",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.426109741000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-22",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.436630271000013,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-23",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.438428810000005,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-24",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.441431815000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-25",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.446207088000023,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-24",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.457653708999999,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-25",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.459644172000026,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-23",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.468006667000026,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-24",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.470977102000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-25",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.473878098,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-26",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.477972149999999,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-25",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.489549924000016,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-26",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.490900463000003,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-24",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.494884474000003,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-25",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.50225037200002,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-26",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.509729825000022,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-26",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.51168151600001,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-27",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.516334866000022,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-27",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.523166776000011,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-25",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.533997709000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-26",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.535007464000017,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-27",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.535190046000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-28",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.542426169999999,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-27",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.555941629000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-26",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.559584875000013,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-28",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.567051976000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-27",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.56761929000001,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-28",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.572219079000007,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-29",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.5744835980000005,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-28",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.584579621000017,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-29",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.58817966700002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-27",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.594724403000015,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-28",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.599685421000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-29",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.606865077000009,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-29",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.611712180000012,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-30",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.615073105000022,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-30",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.620295443000003,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-28",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.626787727000021,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-29",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.62751779300001,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-30",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.640282199000012,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-31",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.641591134999999,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-30",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.652189249000003,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-31",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.6534649400000205,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-29",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.655256981000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-30",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.661293532000002,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-31",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.677320281000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-31",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.678052724000025,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-32",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.680750052000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-32",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.689743813000007,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-30",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.697472351000016,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-32",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.697578815000014,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-31",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.701223691000024,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-33",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.712458603000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-32",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.715374721000018,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-33",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.724661275000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-31",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.726297137000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-32",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.731913266000021,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-33",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.738320303000023,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-34",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.745876958000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-33",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.752030300000001,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-34",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.757698670000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-32",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.76053545100001,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-33",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.765782986000005,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-34",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.774975911000013,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-35",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.780680771000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-34",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.7893895490000205,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-35",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.792439470000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-33",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.8004638010000065,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-35",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.809677214000004,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-34",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.815070352000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-35",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.816240324000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-36",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.8167860580000195,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-36",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.827232330000015,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-34",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.836895631000004,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-35",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.839567680000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-36",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.847226663000015,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-36",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.856736190000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-37",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.86245574900002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-35",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.865510297000014,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-37",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.872448081000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-36",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.876042746000024,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-37",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.884243452000021,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-37",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.890400995000022,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-38",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.893415299000026,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-38",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.899422957000013,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-36",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.9005845610000165,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-37",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.906589306000001,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-38",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.909367670000023,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-39",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.921851337000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-38",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.934482596999999,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-37",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.9392643300000145,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-39",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.941765644000014,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-39",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.9492339749999985,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-38",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.957234192000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-39",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.959979834000023,
+    "pid": 480,
+    "worker": "A",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-A-40",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.9603341279999995,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-40",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.970951116000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-38",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.978259507000018,
+    "pid": 480,
+    "worker": "A",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-A-40",
+    "kind": "append",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.978303655000019,
+    "pid": 480,
+    "worker": "A",
+    "status": "DONE",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 6.986481136999998,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-39",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 6.994337073000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-40",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.004695302000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-41",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.007593879000012,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-39",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.013949124000021,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-40",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.020373139000014,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-41",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.023773131000013,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-42",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.033335643000015,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-40",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.046231829000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-42",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.048714253000014,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-41",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.061361079000022,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-41",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.062117648000026,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-43",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.0662753130000056,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-42",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.075740501000013,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-43",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.0806760490000045,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-44",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.088444655000018,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-42",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.102149732000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-44",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.103899417000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-43",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.111791390000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-45",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.1165772350000225,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-43",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.121409836000026,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-44",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.129052710000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-45",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.142045848999999,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-44",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.143083127000011,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-45",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.147297542000018,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-46",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.155619511000026,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-45",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.16933923000002,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-46",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.170556041000026,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-46",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.175976007000003,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-47",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.183984680000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-46",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.195861040000011,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-47",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.197524856000001,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-47",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.200887009000013,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-48",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.210774937000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-47",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.223798307999999,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-48",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.226723501000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-48",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.240139036000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-48",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.242911918000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-49",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.252913606000021,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-49",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.255466419000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-49",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.268520840000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-49",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.268510280000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-50",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.274981557000018,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-50",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.281334777000012,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-50",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.294365845000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-50",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.29513908200002,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-51",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.296947981000017,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-51",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.30798732300002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-51",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.322069192000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-51",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.322828639000022,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-52",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.3280549110000095,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-52",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.336304311000021,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-52",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.337069622000001,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-53",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.349278052000017,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-52",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.361220173000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-53",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.362502637000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-53",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.370815774000022,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-54",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.375470567000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-53",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.382954360000014,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-54",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.391774735000013,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-54",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.4034087420000105,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-55",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.405098680000009,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-54",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.4079132800000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-55",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.419493295000024,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-55",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.421600691000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-56",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.433092344000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-55",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.437507750999998,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-56",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.447108747000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-56",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.460874558,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-56",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.462265496000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-57",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.462426367000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-57",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.476287335000023,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-57",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.490702980999998,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-57",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.492135195000003,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-58",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.506102375000012,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-58",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.508945951000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-59",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.509691584000024,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-58",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.522562189000013,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-59",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.536314572000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-58",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.538837631000007,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-59",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.540032203999999,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-60",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.552680284000019,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-59",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.564166628999999,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-60",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.566368718000007,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-60",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.575589653000009,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-61",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.579557416,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-60",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.581857494000019,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-61",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.592171113000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-61",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.606128769000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-61",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.609507647000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-62",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.61284640400001,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-62",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.622895364000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-62",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.629024897000022,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-63",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.6359716750000075,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-62",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.649411511000011,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-63",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.6504947560000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-63",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.656914935000003,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-64",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.664221452000021,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-63",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.667580266000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-64",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.677914047000002,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-64",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.679595067000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-65",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.690738205000002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-64",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.696724139000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-65",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.70402746900001,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-65",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.716926801,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-65",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.720826744000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-66",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.733241139,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-66",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.73408471800002,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-66",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.743409599000017,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-67",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.747743202000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-66",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.760454147000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-67",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.762538184000022,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-67",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.775415414000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-68",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.776458747000021,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-67",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.7867599590000225,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-68",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.788515687,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-68",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.798556411000021,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-69",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.801719584000011,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-68",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.812948974000022,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-69",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.814561187999999,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-69",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.815742569000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-70",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.82716982300002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-69",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.839905550000026,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-70",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.84498595300002,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-70",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.846685508000007,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-71",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.858148497000002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-70",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.866012556000015,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-71",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.871753636000022,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-71",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.884565000999999,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-71",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.885340198000023,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-72",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.896180552000004,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-72",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.898709258000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-72",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.912027180000024,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-72",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.918105892,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-73",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.924432670000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-73",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.931411216000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-73",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.934498165000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-74",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.944578568000026,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-73",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.953357689000001,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-74",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.957697327000005,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-74",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.95861401800002,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-75",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.971023786000018,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-74",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.984202437000022,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-75",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.984730273000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-75",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 7.998936302000004,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-75",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.000196884000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-76",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.013254621000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-76",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.013355079000007,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-76",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.026138362000012,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-76",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.031872923000009,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-77",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.03988603800002,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-77",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.04561517900001,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-77",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.05468319800002,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-78",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.058595971000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-77",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.070810875000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-78",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.071932228000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-78",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.084584455000027,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-79",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.085262211000014,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-78",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.097075786000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-79",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.09759912200002,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-79",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.110807813000008,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-79",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.112820358000022,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-80",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.117349559000019,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-80",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.124765139000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-80",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.132480442000002,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-81",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.138780187999998,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-80",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.141341530000005,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-81",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.152866576000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-81",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.15795720600002,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-82",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.165772475000011,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-81",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.166449266,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-82",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.179311075000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-82",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.184302126000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-83",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.192891693000007,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-82",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.205789486000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-83",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.209427015000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-83",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.222417955000026,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-84",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.222648415000009,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-83",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.230309106000021,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-84",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.235244359000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-84",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.238465807000011,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-85",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.248395428999999,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-84",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.260048914999999,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-85",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.262141251000003,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-85",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.275137295000007,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-85",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.278931814000003,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-86",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.285833257000007,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-86",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.291505160000014,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-86",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.304359524000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-86",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.308439075000024,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-87",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.321356157000025,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-87",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.321309116999998,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-87",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.334358516999998,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-87",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.334952382000012,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-88",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.347450131000016,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-88",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.349193415000002,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-88",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.355933763000024,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-89",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.361706376,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-88",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.37471423400001,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-89",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.375548906000006,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-89",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.376737801000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-90",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.39188242900002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-89",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.39810214800002,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-90",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.405629561000012,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-90",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.419612565000023,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-90",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.423816216000006,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-91",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.429130779000019,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-91",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.437259899000026,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-91",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.442985918000005,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-92",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.450023145000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-91",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.458489024000016,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-92",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.463559578000002,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-92",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.473613771000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-93",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.478187752000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-92",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.48987453800001,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-93",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.491776334000008,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-93",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.505121823000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-93",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.508644492000002,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-94",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.518328948000004,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-94",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.522463175000013,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-94",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.534366542000015,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-95",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.53645713100002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-94",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.540231835000014,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-95",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.549884668000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-95",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.56255533700002,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-95",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.563555197,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-96",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.575167803,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-96",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.577986686000003,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-96",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.589998693000013,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-97",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.591141218000018,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-96",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.598877054000013,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-97",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.60685096200001,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-97",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.620232174000023,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-97",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.620482919000011,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-98",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.62271088,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-98",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.634808096,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-98",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.646625390000025,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-99",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.648627973000004,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-98",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.662694360000017,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-99",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.662857673000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-99",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.678230382999999,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-99",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.681655337000024,
+    "pid": 493,
+    "worker": "C",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-C-100",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.694244425000022,
+    "pid": 492,
+    "worker": "B",
+    "status": "BEGIN",
+    "transaction": "s4-374967567-B-100",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.69581022700001,
+    "pid": 493,
+    "worker": "C",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-C-100",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.695861803000014,
+    "pid": 493,
+    "worker": "C",
+    "status": "DONE",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  },
+  {
+    "at": 8.712760020000019,
+    "pid": 492,
+    "worker": "B",
+    "status": "COMMIT",
+    "transaction": "s4-374967567-B-100",
+    "kind": "increment",
+    "partition": "p0",
+    "attempt": 1
+  },
+  {
+    "at": 8.71284590000002,
+    "pid": 492,
+    "worker": "B",
+    "status": "DONE",
+    "transaction": null,
+    "kind": null,
+    "partition": null
+  }
+]
