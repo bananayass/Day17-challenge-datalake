@@ -93,6 +93,7 @@ Add local manifest rewrite as a separate maintenance subscenario. Do not mix it 
 | P2: Safe retries | P1 plus bounded exponential backoff with jitter, fresh transaction planning, and an atomic idempotency mechanism |
 | P3: Selective coordination | P2 plus queues/ownership only for conflicting partitions or keys; coordinate maintenance with the affected region |
 | P4: Full serialization control | One transaction at a time across all four workers, using the same bounded retry/idempotency settings as P2 |
+| P5: Row-level MVCC | Append delta Parquet files and validate only target row versions; compaction validates the partition |
 
 P0 performs no application retry. The simulator exposes every validation conflict directly, so record retries and full logical re-executions separately.
 
@@ -100,7 +101,7 @@ For P2–P4, pin an application retry budget, for example five retries with a 10
 
 Retrying counter increments requires more than an external audit log. The local scripts update a per-writer sequence marker atomically with each counter and process each writer's sequences in order.
 
-P4 measures the throughput cost of serialization. Compare P3 against both P2 and P4; do not infer that queueing wins from correctness alone.
+P4 measures the throughput cost of serialization. Compare P3 against both P2 and P4; do not infer that queueing wins from correctness alone. Compare P5 with P2 in S2 and S3 to distinguish disjoint-row concurrency from true write-write conflicts.
 
 ## Independent oracle and pass/fail rules
 

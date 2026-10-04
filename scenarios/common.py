@@ -18,6 +18,12 @@ import sys
 import time
 import uuid
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from approach import POLICIES, get_approach
+
 SCENARIOS = {
     "s1": ("disjoint_partitions", "p1", "p2", False, False),
     "s2": ("shared_files_disjoint_keys", "p0", "p0", True, False),
@@ -26,7 +32,6 @@ SCENARIOS = {
     "s5": ("overlapping_keys_manifest_rewrite", "p0", "p0", True, False),
     "s6": ("privacy_delete", "p0", "p0", True, True),
 }
-POLICIES = ("p0", "p1", "p2", "p3", "p4")
 ROW_FIELDS = (
     "partition_id", "row_kind", "row_id", "counter_value",
     "event_payload", "last_b", "last_c",
@@ -85,6 +90,7 @@ def initial_rows(args):
             "partition_id": f"p{partition}", "row_kind": "counter",
             "row_id": f"p{partition}:counter:{key}", "counter_value": 0,
             "event_payload": None, "last_b": 0, "last_c": 0,
+            "_deleted": False,
         }
         for partition in range(args.partitions)
         for key in range(args.rows_per_partition)
@@ -140,7 +146,7 @@ def operation_dict(operation):
 
 
 def row_from_event(event):
-    return dict(zip(ROW_FIELDS, event))
+    return {**dict(zip(ROW_FIELDS, event)), "_deleted": False}
 
 
 def frame_from_rows(rows):
@@ -148,7 +154,7 @@ def frame_from_rows(rows):
     schema = {
         "partition_id": pl.String, "row_kind": pl.String, "row_id": pl.String,
         "counter_value": pl.Int64, "event_payload": pl.String,
-        "last_b": pl.Int64, "last_c": pl.Int64,
+        "last_b": pl.Int64, "last_c": pl.Int64, "_deleted": pl.Boolean,
     }
     return pl.DataFrame(rows, schema=schema)
 
@@ -178,7 +184,10 @@ class LocalTable:
                 path = self.data / f"{partition}-seed-{index:03d}.parquet"
                 frame_from_rows(chunk).write_parquet(path)
                 files.append(str(path.relative_to(self.root)))
-            partitions[partition] = {"version": 0, "files": files}
+            partitions[partition] = {
+                "version": 0, "files": files,
+                "row_versions": {row["row_id"]: 0 for row in partition_rows},
+            }
         dump(self.metadata_path, {
             "version": 0, "manifest_generation": 0,
             "partitions": partitions, "commits": [],
@@ -190,7 +199,16 @@ class LocalTable:
     def read_partition(self, metadata, partition):
         import polars as pl
         files = [self.root / item for item in metadata["partitions"][partition]["files"]]
-        return pl.concat([pl.read_parquet(path) for path in files]).to_dicts()
+        # Files are ordered oldest to newest. Later MVCC deltas replace earlier
+        # row versions; tombstones hide deleted rows from the visible snapshot.
+        visible = {}
+        for path in files:
+            for row in pl.read_parquet(path).to_dicts():
+                if row["_deleted"]:
+                    visible.pop(row["row_id"], None)
+                else:
+                    visible[row["row_id"]] = row
+        return list(visible.values())
 
     def read_all(self, metadata=None):
         metadata = metadata or self.metadata()
@@ -205,9 +223,10 @@ class LocalTable:
         return path
 
     def coordination_path(self, operation, policy):
-        if policy == "p4" or operation.kind == "manifest":
+        scope = get_approach(policy).coordination_scope(operation)
+        if scope == "global":
             return self.locks / "coord-global.lock"
-        if policy == "p3":
+        if scope == "partition":
             return self.locks / f"coord-{operation.partition}.lock"
         return None
 
@@ -219,26 +238,42 @@ class LocalTable:
         return self._attempt(operation, policy, work_ms)
 
     def _attempt(self, operation, policy, work_ms):
+        approach = get_approach(policy)
         base = self.metadata()
         if operation.id in {item["operation_id"] for item in base["commits"]}:
             return {"status": "already_committed", "bytes_written": 0}
 
         staged = None
+        affected_ids = set()
         if operation.kind == "append":
-            staged = self.stage(operation, [row_from_event(event) for event in operation.events])
+            rows = [row_from_event(event) for event in operation.events]
+            affected_ids = {row["row_id"] for row in rows}
+            staged = self.stage(operation, rows)
         elif operation.kind in ("increment", "delete", "compact"):
             rows = self.read_partition(base, operation.partition)
             if operation.kind == "increment":
                 key_ids = {f"{operation.partition}:counter:{key}" for key in operation.keys}
+                affected_ids = key_ids
                 marker = "last_b" if operation.writer == "B" else "last_c"
-                safe = policy in ("p2", "p3", "p4")
+                safe = approach.idempotent_writes
+                updated_rows = []
                 for row in rows:
                     if row["row_id"] in key_ids and (not safe or row[marker] < operation.sequence):
                         row["counter_value"] += 1
                         row[marker] = operation.sequence
+                        updated_rows.append(row)
+                if approach.delta_mutations:
+                    rows = updated_rows
             elif operation.kind == "delete":
                 key_ids = {f"{operation.partition}:counter:{key}" for key in operation.keys}
-                rows = [row for row in rows if row["row_id"] not in key_ids]
+                affected_ids = key_ids
+                if approach.delta_mutations:
+                    rows = [
+                        {**row, "_deleted": True}
+                        for row in rows if row["row_id"] in key_ids
+                    ]
+                else:
+                    rows = [row for row in rows if row["row_id"] not in key_ids]
             else:
                 rows.sort(key=lambda row: (row["row_kind"], row["row_id"]))
             staged = self.stage(operation, rows)
@@ -255,18 +290,8 @@ class LocalTable:
                         staged.unlink(missing_ok=True)
                     return {"status": "already_committed", "bytes_written": 0}
 
-                if policy == "p0":
-                    valid = current["version"] == base["version"]
-                elif operation.kind == "manifest":
-                    valid = current["version"] == base["version"]
-                elif operation.kind == "append":
-                    valid = True
-                else:
-                    valid = (
-                        current["partitions"][operation.partition]["version"]
-                        == base["partitions"][operation.partition]["version"]
-                    )
-                if not valid:
+                validation = approach.validate(base, current, operation, affected_ids)
+                if not validation.valid:
                     raise CommitConflict(
                         f"snapshot changed while committing {operation.id}",
                         staged.stat().st_size if staged else 0,
@@ -280,11 +305,14 @@ class LocalTable:
                     bytes_written = final.stat().st_size
                     relative = str(final.relative_to(self.root))
                     partition_state = current["partitions"][operation.partition]
-                    if operation.kind == "append":
+                    if approach.install_mode(operation) == "append":
                         partition_state["files"].append(relative)
                     else:
                         partition_state["files"] = [relative]
                     partition_state["version"] += 1
+                    if operation.kind in ("append", "increment", "delete"):
+                        for row_id in affected_ids:
+                            partition_state["row_versions"][row_id] = next_version
                 else:
                     current["manifest_generation"] += 1
 
@@ -293,6 +321,8 @@ class LocalTable:
                     "version": next_version, "operation_id": operation.id,
                     "writer": operation.writer, "kind": operation.kind,
                     "partition": operation.partition,
+                    "validation_scope": validation.scope,
+                    "validated_row_count": validation.validated_row_count,
                     "bytes_written": bytes_written, "committed_at_ns": time.time_ns(),
                 })
                 dump(self.metadata_path, current)
@@ -405,7 +435,8 @@ def execute_operation(table, operation, policy, args, event_queue, origin):
     physical_attempt_bytes = 0
     error = None
     result = None
-    maximum_attempts = args.retry_limit + 1 if policy in ("p2", "p3", "p4") else 1
+    approach = get_approach(policy)
+    maximum_attempts = args.retry_limit + 1 if approach.retry_enabled else 1
     for attempt in range(maximum_attempts):
         attempts += 1
         emit(event_queue, origin, operation.writer, "BEGIN", operation, attempt=attempts)
@@ -504,7 +535,10 @@ def parse_args(scenario, argv=None):
     args = parser.parse_args(argv)
     args.policies = [item.strip().lower() for item in args.policies.split(",") if item.strip()]
     if args.runs < 1 or not args.policies or any(item not in POLICIES for item in args.policies):
-        parser.error("runs must be positive and policies must be selected from p0,p1,p2,p3,p4")
+        parser.error(
+            "runs must be positive and policies must be selected from "
+            + ",".join(POLICIES)
+        )
     if args.partitions < 4 or args.rows_per_partition < 20 or args.seed_files < 1:
         parser.error("partitions must be >=4, rows-per-partition >=20, and seed-files positive")
     if args.keys_per_mutation > args.rows_per_partition or args.delete_keys > args.rows_per_partition:
@@ -669,6 +703,12 @@ def one_run(scenario, args, policy, repetition, seed):
         "active_file_count": len(active_files),
         "retained_old_or_orphan_file_count": len(final_inventory) - len(active_files),
         "final_metadata_version": metadata["version"],
+        "mvcc_delta_commits": sum(
+            entry["validation_scope"] == "row" for entry in metadata["commits"]
+        ),
+        "tracked_row_versions": sum(
+            len(partition["row_versions"]) for partition in metadata["partitions"].values()
+        ),
         "commit_history": metadata["commits"],
         "environment": {
             "python": sys.version, "platform": platform.platform(),

@@ -35,7 +35,7 @@ Run a small smoke experiment:
 
 ```sh
 uv run python scenarios/s1_disjoint_partitions.py \
-  --runs 1 --policies p0,p1,p2,p3,p4 \
+  --runs 1 --policies p0,p1,p2,p3,p4,p5 \
   --append-commits 5 --mutation-commits 10 --maintenance-attempts 2
 ```
 
@@ -54,12 +54,14 @@ Run the planned experiment with ten repetitions:
 
 ```sh
 uv run python scenarios/s4_overlapping_keys_compaction.py \
-  --runs 10 --policies p0,p1,p2,p3,p4
+  --runs 10 --policies p0,p1,p2,p3,p4,p5
 ```
 
 All output stays under `results/`. Each run receives a unique directory containing its immutable operation plan, initial file inventory, live events, attempt receipts, local table files, commit history, oracle diff, and metrics.
 
 ## Policies
+
+Policy algorithms live in separate modules under [`approach/`](approach/README.md), while `scenarios/common.py` contains only workload orchestration, local storage, the oracle, and metrics.
 
 | Policy | Local behavior |
 | --- | --- |
@@ -68,8 +70,9 @@ All output stays under `results/`. Each run receives a unique directory containi
 | `p2` | `p1` plus bounded retry/backoff and same-row writer sequence markers |
 | `p3` | `p2` plus a queue for operations targeting the same partition |
 | `p4` | One global queue serializes all operations as the throughput control |
+| `p5` | Row-level MVCC writes delta files and validates only changed row versions |
 
-Every commit briefly takes the metadata file lock so `metadata.json` can be replaced atomically. Writers do their Parquet work before this lock. Optimistic policies compare the snapshot they read with the current global or partition version and reject stale rewrites.
+Every commit briefly takes the metadata file lock so `metadata.json` can be replaced atomically. Writers do their Parquet work before this lock. P5 keeps row versions in metadata and appends mutation/delete deltas, allowing disjoint keys in one partition to commit concurrently. Compaction still validates the whole partition.
 
 ## Correctness and metrics
 
