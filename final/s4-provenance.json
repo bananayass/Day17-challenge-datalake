@@ -1,0 +1,21 @@
+{
+  "approach/__init__.py": "7e84f3314f90fe2b8159ecfed4afecaec99274668b3e839f71134b249331d316",
+  "approach/base.py": "4d0ca0a6f7f488fd18d5336a626b2d017325b1ca48ae4bed593edcf0ccf25aa9",
+  "approach/p0_global_occ.py": "db86e2cab85ab2398af430d747733eeaae8ea182986b877ddcb3462e57b6178c",
+  "approach/p1_partition_occ.py": "ce268052e65adadf1c8bfc13af9f4364803eed86ec492b6f1e49f46d1e8a95a9",
+  "approach/p2_retry_occ.py": "95402d5327d85ed888ac36e433bf2d43e44c47878e6ed752226fbc236253e543",
+  "approach/p3_partition_queue.py": "0007dedeee43c9e00ac697c5d5613303861d7d5029191d222c32f824c6ec90a7",
+  "approach/p4_full_serialization.py": "26cd9b90a5e9dffbd6c642931a75536932f3d6aff67cf57709a86133d101a6b5",
+  "approach/p5_row_mvcc.py": "261904255ffd6e565d5c41f1519e96e668a42dbb745c2e177fb5f4b2d3979dd9",
+  "scenarios/common.py": "adade0fce0803e5989673d54eaca3b87cea31bc2c823033d920f2d33143dfe2b",
+  "scenarios/s1_disjoint_partitions.py": "a8c7cc1c61dd945d0800658280abd40621ea340c2b5d55bc6f65fd2ea6fca374",
+  "scenarios/s2_shared_files_disjoint_keys.py": "262039c2f5f93bcd8e52630a97ad1db357621f39f02c748dfdd48da54272a58f",
+  "scenarios/s3_overlapping_keys.py": "84ea511c7344b159385f8e71f9a6847ffbf42b0fe78119979834c29f23d636df",
+  "scenarios/s4_overlapping_keys_compaction.py": "370a6caf3fce94190003360934707047a0952ba23cd7b489b146a9b3e2597fe1",
+  "scenarios/s5_manifest_rewrite.py": "8944f215e8c56332af84e6a9aba704933542d9cdf97eb63ef9dc547940ca1044",
+  "scenarios/s6_privacy_delete.py": "b563cd9c83cb0a85914c8036d9e4ad161d7b7eddfce8a4b188e2d9044006aa62",
+  "tests/test_s4_correctness.py": "0bd930e014fcd06dc313285a666ded16674fcfdd178f010921a421447216b7bd",
+  "scripts/summarize_s4.py": "08e3a4a2d94c97d5a6a85513b5fbdba25fb935dacdf3d26fdcd819765bd893d5",
+  "requirements.txt": "6bd023a11183cbf21bf2377ab7c211dbe251dc6f7de4b6759c5818bb3f16dd3f",
+  "pyproject.toml": "8624269bc26512cf7c5a5cfd6db5f98f6f0497f13fd4f8679db6f0101f677ebe"
+}

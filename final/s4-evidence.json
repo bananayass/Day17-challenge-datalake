@@ -1,0 +1,7 @@
+{
+  "archive": "results/s4-reviewed/evidence.tar.gz",
+  "sha256": "41c83808713d23a56c7bb4650125fce512e6b4ff66ac53608c6ce770ce25b17d",
+  "bytes": 8861183,
+  "source": "/tmp/day17-s4-review-measured",
+  "runs": 60
+}
