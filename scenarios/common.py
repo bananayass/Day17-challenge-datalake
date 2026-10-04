@@ -5,7 +5,12 @@ import argparse
 from collections import Counter, defaultdict
 from contextlib import contextmanager
 from dataclasses import asdict, dataclass
-import fcntl
+import sys
+
+if sys.platform == "win32":
+    import msvcrt
+else:
+    import fcntl
 import json
 import math
 import multiprocessing as mp
@@ -14,7 +19,6 @@ from pathlib import Path
 import platform
 import queue as queue_module
 import random
-import sys
 import time
 import uuid
 
@@ -72,12 +76,30 @@ def load(path):
 def exclusive_lock(path):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("a+") as handle:
-        fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
-        try:
-            yield
-        finally:
-            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+    if sys.platform == "win32":
+        with path.open("a+b") as handle:
+            while True:
+                try:
+                    handle.seek(0)
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+                    break
+                except OSError:
+                    time.sleep(0.01)
+            try:
+                yield
+            finally:
+                handle.seek(0)
+                try:
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+                except OSError:
+                    pass
+    else:
+        with path.open("a+") as handle:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+            try:
+                yield
+            finally:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
 
 
 def percentile(values, p=0.95):
