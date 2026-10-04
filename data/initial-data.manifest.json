@@ -1,0 +1,60 @@
+{
+  "dataset_id": "lakehouse-concurrency-initial-v1",
+  "data_file": "initial-data.json",
+  "format": "JSON array",
+  "encoding": "UTF-8",
+  "sha256": "75627f2fd1e87d78319355eba21be95b5d4fd56d749820595175a1e11e40c2ea",
+  "row_count": 8000,
+  "partition_column": "partition_id",
+  "partitions": {
+    "p0": 1000,
+    "p1": 1000,
+    "p2": 1000,
+    "p3": 1000,
+    "p4": 1000,
+    "p5": 1000,
+    "p6": 1000,
+    "p7": 1000
+  },
+  "schema": [
+    {
+      "name": "partition_id",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "row_kind",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "row_id",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "counter_value",
+      "type": "long",
+      "nullable": true
+    },
+    {
+      "name": "event_payload",
+      "type": "string",
+      "nullable": true
+    }
+  ],
+  "initial_invariants": {
+    "unique_row_ids": true,
+    "row_kind": "counter",
+    "counter_value": 0,
+    "event_payload": null,
+    "event_row_count": 0
+  },
+  "suggested_file_layout": {
+    "files_per_partition": 10,
+    "rows_per_file": 100,
+    "group_rule": "key // 100",
+    "shared_hot_keys": "Keys 0-19 should share a physical data file for S2.",
+    "note": "JSON order does not guarantee table file layout. Verify actual files after import."
+  }
+}
