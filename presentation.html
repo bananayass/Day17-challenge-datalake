@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Concurrent Writers & Conflict Management</title>
+  <style>
+    :root {
+      --ink: #18233a;
+      --muted: #647087;
+      --paper: #f6f2e8;
+      --white: #fffdf8;
+      --teal: #087e78;
+      --teal-light: #d8efea;
+      --coral: #eb6a4b;
+      --yellow: #f0c44f;
+      --line: #d7d1c5;
+      --good: #177a50;
+      --warn: #b55b27;
+      --bad: #a83d3d;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #101827; color: var(--ink); }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; overflow: hidden; }
+
+    .deck { height: 100vh; width: 100vw; position: relative; }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      padding: clamp(34px, 5vh, 68px) clamp(42px, 6vw, 96px);
+      background: var(--paper);
+      overflow: hidden;
+    }
+    .slide.active { display: block; animation: enter .28s ease-out; }
+    @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(8,126,120,.18);
+      border-radius: 50%;
+      right: -120px;
+      top: -120px;
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 8px;
+      background: var(--coral);
+      right: 6vw;
+      bottom: 42px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(48px, 6.2vw, 88px); line-height: .98; letter-spacing: -.045em; max-width: 1050px; }
+    h2 { font-size: clamp(34px, 4vw, 58px); line-height: 1.04; letter-spacing: -.035em; margin-bottom: 34px; }
+    h3 { font-size: clamp(20px, 2vw, 28px); line-height: 1.15; margin-bottom: 10px; }
+    p, li, td, th { font-size: clamp(16px, 1.45vw, 22px); line-height: 1.42; }
+    strong { font-weight: 750; }
+    .muted { color: var(--muted); }
+    .accent { color: var(--teal); }
+    .coral { color: var(--coral); }
+    .eyebrow { color: var(--teal); font-size: 15px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 18px; }
+    .lede { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.35; max-width: 980px; color: #33405a; }
+    .slide-no { position: absolute; top: 22px; right: 32px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .source { position: absolute; left: clamp(42px, 6vw, 96px); bottom: 68px; font-size: 12px; color: #747b88; max-width: 76vw; }
+
+    .cover { background: var(--ink); color: var(--white); }
+    .cover::before { border-color: rgba(255,255,255,.16); width: 560px; height: 560px; right: -160px; top: -220px; }
+    .cover::after { width: 180px; background: var(--yellow); }
+    .cover .eyebrow { color: #7bd6c9; margin-top: 8vh; }
+    .cover h1 { margin-top: 8vh; }
+    .cover .lede { color: #c8d0df; max-width: 800px; }
+    .cover .meta { position: absolute; bottom: 10vh; display: flex; gap: 42px; color: #aeb9ca; font-size: 16px; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px, 5vw, 82px); align-items: start; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(22px, 3vw, 46px); }
+    .rule { border-top: 2px solid var(--ink); padding-top: 18px; }
+    .number { font-size: clamp(54px, 7vw, 100px); line-height: .9; font-weight: 800; color: var(--teal); letter-spacing: -.05em; }
+    .formula { display: inline-block; font: 700 clamp(21px, 2.2vw, 31px)/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; padding: 14px 18px; background: var(--ink); color: var(--white); }
+    ul.clean { list-style: none; padding: 0; margin: 0; }
+    ul.clean li { border-top: 1px solid var(--line); padding: 12px 0 10px 30px; position: relative; }
+    ul.clean li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--coral); position: absolute; left: 0; top: 21px; }
+
+    .process { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 8vh; }
+    .step { border-top: 6px solid var(--teal); padding-top: 17px; min-height: 180px; }
+    .step:nth-child(2) { border-color: #25a99e; }
+    .step:nth-child(3) { border-color: var(--yellow); }
+    .step:nth-child(4) { border-color: var(--coral); }
+    .step:nth-child(5) { border-color: var(--ink); }
+    .step b { display: block; font-size: 13px; letter-spacing: .12em; color: var(--muted); margin-bottom: 18px; }
+    .step p { font-size: clamp(15px, 1.25vw, 19px); }
+
+    .scenario { border-top: 2px solid var(--ink); padding-top: 16px; }
+    .scenario-id { color: var(--coral); font-size: 14px; font-weight: 850; letter-spacing: .14em; }
+    .actors { font: 650 clamp(14px, 1.1vw, 17px)/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; color: #41506a; margin: 13px 0; }
+    .scenario p { font-size: clamp(15px, 1.25vw, 19px); }
+
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; padding: 0 10px 10px; }
+    td { border-top: 1px solid var(--line); padding: 11px 10px; vertical-align: top; font-size: clamp(14px, 1.1vw, 18px); }
+    td:first-child { font-weight: 800; color: var(--teal); width: 60px; }
+    .policy-table td:nth-child(2) { font-weight: 700; width: 220px; }
+
+    .mvcc-flow { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: center; }
+    .versions { position: relative; min-height: 430px; }
+    .version { position: absolute; width: 78%; padding: 19px 24px; border: 2px solid var(--ink); background: var(--white); box-shadow: 9px 9px 0 rgba(24,35,58,.12); }
+    .version:nth-child(1) { top: 20px; left: 0; }
+    .version:nth-child(2) { top: 145px; left: 11%; border-color: var(--teal); }
+    .version:nth-child(3) { top: 270px; left: 22%; border-color: var(--coral); }
+    .version code { font-size: 15px; }
+
+    .setup-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 60px; }
+    .setup-list { counter-reset: item; }
+    .setup-list div { counter-increment: item; display: grid; grid-template-columns: 42px 1fr; gap: 12px; border-top: 1px solid var(--line); padding: 13px 0; }
+    .setup-list div::before { content: counter(item, decimal-leading-zero); font-weight: 850; color: var(--coral); }
+    .setup-list p { margin: 0; font-size: clamp(15px, 1.2vw, 19px); }
+    .spec { background: var(--ink); color: var(--white); padding: 30px; }
+    .spec dl { margin: 0; }
+    .spec dt { color: #7bd6c9; text-transform: uppercase; letter-spacing: .1em; font-size: 12px; margin-top: 18px; }
+    .spec dd { margin: 4px 0 0; font-size: 20px; }
+
+    .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-bottom: 28px; }
+    .kpi { border-top: 5px solid var(--teal); padding-top: 13px; }
+    .kpi strong { display: block; font-size: clamp(38px, 4.2vw, 62px); line-height: 1; letter-spacing: -.04em; }
+    .kpi span { display: block; color: var(--muted); margin-top: 8px; }
+
+    .heatmap { table-layout: fixed; }
+    .heatmap th, .heatmap td { text-align: center; padding: 8px 5px; font-size: 14px; }
+    .heatmap th:first-child, .heatmap td:first-child { text-align: left; width: 76px; }
+    .heat-100 { background: #cae9db; color: #0c5a3b; }
+    .heat-90 { background: #e6e8ba; color: #595719; }
+    .heat-low { background: #f4d0c6; color: #8b3727; }
+
+    .bars { margin-top: 16px; }
+    .bar-row { display: grid; grid-template-columns: 54px 1fr 92px 66px; gap: 15px; align-items: center; margin: 12px 0; }
+    .bar-label { font-weight: 850; color: var(--ink); }
+    .bar-track { height: 27px; background: #e4dfd4; position: relative; }
+    .bar-fill { height: 100%; background: var(--teal); }
+    .bar-value { font-weight: 800; font-variant-numeric: tabular-nums; }
+    .bar-policy { color: var(--coral); font-weight: 800; }
+
+    .finding { display: grid; grid-template-columns: 92px 1fr; gap: 22px; border-top: 1px solid var(--line); padding: 16px 0; }
+    .finding b { font-size: 13px; color: var(--coral); letter-spacing: .12em; }
+    .finding p { margin: 0; font-size: clamp(16px, 1.35vw, 21px); }
+    .callout { background: var(--teal-light); border-left: 8px solid var(--teal); padding: 20px 25px; font-size: clamp(17px, 1.4vw, 22px); }
+
+    .nav { position: fixed; z-index: 5; left: 50%; bottom: 17px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; color: white; }
+    .nav button { border: 1px solid rgba(255,255,255,.35); background: rgba(16,24,39,.78); color: white; width: 34px; height: 30px; cursor: pointer; font-size: 18px; }
+    .progress { width: 160px; height: 4px; background: rgba(255,255,255,.25); }
+    .progress span { display: block; height: 100%; background: var(--yellow); transition: width .2s; }
+    .nav-count { font-size: 12px; min-width: 42px; text-align: center; }
+
+    @media (max-width: 900px) {
+      .slide { overflow-y: auto; padding-bottom: 90px; }
+      .two-col, .three-col, .setup-grid, .mvcc-flow { grid-template-columns: 1fr; }
+      .process { grid-template-columns: 1fr 1fr; }
+      .slide::after { display: none; }
+      body { overflow: auto; }
+    }
+    @media print {
+      body { overflow: visible; background: white; }
+      .deck { height: auto; }
+      .slide { display: block !important; position: relative; width: 13.333in; height: 7.5in; page-break-after: always; }
+      .nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" id="deck">
+    <section class="slide cover active">
+      <div class="eyebrow">Data Lakehouse Open Research Challenge</div>
+      <h1>Concurrent Writers<br>& Conflict Management</h1>
+      <p class="lede">Mô phỏng local bằng Polars để đo correctness, conflict và commit throughput dưới nhiều chiến lược đồng thời</p>
+      <div class="meta"><span>6 scenario</span><span>6 policy</span><span>108 benchmark run</span></div>
+      <div class="slide-no">01</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Bài toán</div>
+      <h2>Nhiều writer cùng ghi vào một bảng</h2>
+      <div class="two-col">
+        <div>
+          <p class="lede">Streaming insert, backfill, privacy delete và compaction có thể chạy cùng lúc. ACID không có nghĩa mọi transaction đều phải thành công.</p>
+          <div class="callout"><strong>Rủi ro chính:</strong> lost update âm thầm hoặc conflict quá nhiều làm throughput giảm mạnh.</div>
+        </div>
+        <div class="rule">
+          <p class="formula">successful commits / second</p>
+          <p style="margin-top:24px">Tối đa hóa throughput với hai điều kiện bắt buộc:</p>
+          <ul class="clean">
+            <li><strong>LostUpdateCount = 0</strong></li>
+            <li><strong>WrongFinalRows = 0</strong></li>
+            <li>Không che giấu chi phí bằng cách serialize mọi writer</li>
+          </ul>
+        </div>
+      </div>
+      <div class="source">Nguồn: baseline.md, AICB Data Lakehouse Open Research Challenge</div>
+      <div class="slide-no">02</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Giả thuyết</div>
+      <h2>Thu hẹp phạm vi conflict trước khi thêm coordination</h2>
+      <div class="three-col" style="margin-top:7vh">
+        <div class="rule">
+          <div class="number">01</div>
+          <h3>Validation hẹp hơn</h3>
+          <p>Global version tạo conflict giả. Partition và row version cho phép các thay đổi độc lập cùng commit.</p>
+        </div>
+        <div class="rule">
+          <div class="number">02</div>
+          <h3>Retry phải an toàn</h3>
+          <p>Transaction đọc lại snapshot, dùng backoff có jitter và sequence marker để không áp dụng mutation hai lần.</p>
+        </div>
+        <div class="rule">
+          <div class="number">03</div>
+          <h3>Chỉ queue vùng nóng</h3>
+          <p>Partition có conflict có thể chạy lần lượt. Partition độc lập vẫn giữ khả năng chạy song song.</p>
+        </div>
+      </div>
+      <div class="source">Giả thuyết được kiểm tra bằng P0–P5 trên cùng operation plan và oracle</div>
+      <div class="slide-no">03</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Cơ chế local</div>
+      <h2>Polars xử lý Parquet, transaction layer quản lý version</h2>
+      <div class="process">
+        <div class="step"><b>01 WORKERS</b><h3>A–E</h3><p>Nhiều Python process bắt đầu cùng barrier.</p></div>
+        <div class="step"><b>02 SNAPSHOT</b><h3>Đọc version</h3><p>Transaction giữ metadata và file list của snapshot.</p></div>
+        <div class="step"><b>03 STAGING</b><h3>Ghi Parquet</h3><p>Công việc nặng chạy ngoài metadata lock.</p></div>
+        <div class="step"><b>04 VALIDATION</b><h3>Global, partition hoặc row</h3><p>Policy quyết định conflict scope và retry.</p></div>
+        <div class="step"><b>05 COMMIT</b><h3>Atomic metadata swap</h3><p>Operation ID tạo durable audit trail cho oracle.</p></div>
+      </div>
+      <div class="callout" style="margin-top:38px">Đây là simulator local để so sánh thuật toán. Kết quả không đại diện cho hiệu năng Delta Lake hoặc Apache Iceberg.</div>
+      <div class="slide-no">04</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Scenario 1–3</div>
+      <h2>Từ vùng độc lập đến write conflict thật</h2>
+      <div class="three-col">
+        <div class="scenario">
+          <div class="scenario-id">S1 · DISJOINT PARTITIONS</div>
+          <h3>Các partition độc lập</h3>
+          <div class="actors">A:p0 · B:p1 · C:p2 · D:p3</div>
+          <p>Đo conflict giả. Policy tốt phải giữ concurrency khi writer không chạm cùng partition.</p>
+          <p><strong>Kỳ vọng:</strong> P1–P3 và P5 có conflict thấp. P4 mất throughput do serialize.</p>
+        </div>
+        <div class="scenario">
+          <div class="scenario-id">S2 · SHARED FILES</div>
+          <h3>Khác key, cùng partition</h3>
+          <div class="actors">B:key 0–9 · C:key 10–19 · p0</div>
+          <p>Phân biệt conflict logic với conflict vật lý trong cùng partition và file ban đầu.</p>
+          <p><strong>Kỳ vọng:</strong> P5 cho B và C commit đồng thời nhờ row version.</p>
+        </div>
+        <div class="scenario">
+          <div class="scenario-id">S3 · OVERLAPPING KEYS</div>
+          <h3>Cùng key, cùng partition</h3>
+          <div class="actors">B:key 0–9 · C:key 0–9 · p0</div>
+          <p>Tạo write-write conflict thật. Mọi increment đã commit phải xuất hiện đúng một lần.</p>
+          <p><strong>Kỳ vọng:</strong> conflict được reject hoặc retry. Oracle bắt mọi lost update.</p>
+        </div>
+      </div>
+      <div class="slide-no">05</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Scenario 4–6</div>
+      <h2>Maintenance và privacy delete trong workload</h2>
+      <div class="three-col">
+        <div class="scenario">
+          <div class="scenario-id">S4 · ACTIVE COMPACTION</div>
+          <h3>Mutation cùng compaction</h3>
+          <div class="actors">A+B+C+D cùng p0</div>
+          <p>Compaction rewrite toàn partition trong lúc append và increment đang commit.</p>
+          <p><strong>Kiểm tra:</strong> maintenance không làm mất event hoặc counter update.</p>
+        </div>
+        <div class="scenario">
+          <div class="scenario-id">S5 · MANIFEST REWRITE</div>
+          <h3>Data và metadata cùng thay đổi</h3>
+          <div class="actors">A+B+C:p0 · D:metadata</div>
+          <p>Manifest rewrite tạo metadata commit nhưng không thay đổi row logic.</p>
+          <p><strong>Kiểm tra:</strong> transaction dùng snapshot cũ phải phát hiện metadata change.</p>
+        </div>
+        <div class="scenario">
+          <div class="scenario-id">S6 · PRIVACY DELETE</div>
+          <h3>Delete, mutation và compaction</h3>
+          <div class="actors">A+B+C+D:p0 · E:delete</div>
+          <p>Delete các key riêng, đồng thời với hot-key increment và compaction.</p>
+          <p><strong>Kiểm tra:</strong> tombstone tồn tại và compaction không phục hồi row đã xóa.</p>
+        </div>
+      </div>
+      <div class="slide-no">06</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Policy implementations</div>
+      <h2>Sáu cách quản lý concurrent write</h2>
+      <table class="policy-table">
+        <thead><tr><th>Policy</th><th>Thuật toán</th><th>Validation và coordination</th><th>Retry</th></tr></thead>
+        <tbody>
+          <tr><td>P0</td><td>Global OCC</td><td>Mọi commit kiểm tra global version</td><td>Không</td></tr>
+          <tr><td>P1</td><td>Partition OCC</td><td>Mutation kiểm tra partition, blind append rebase</td><td>Không</td></tr>
+          <tr><td>P2</td><td>Retry OCC</td><td>P1 với sequence marker và backoff có jitter</td><td>Có giới hạn</td></tr>
+          <tr><td>P3</td><td>Partition Queue</td><td>Serialize transaction trong cùng partition</td><td>Có giới hạn</td></tr>
+          <tr><td>P4</td><td>Full Serialization</td><td>Một global queue cho toàn bộ transaction</td><td>Có giới hạn</td></tr>
+          <tr><td>P5</td><td>Row MVCC</td><td>Delta file và row version, compaction kiểm tra partition</td><td>Có giới hạn</td></tr>
+        </tbody>
+      </table>
+      <div class="source">Code: approach/p0_global_occ.py đến approach/p5_row_mvcc.py</div>
+      <div class="slide-no">07</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">P5 · Row MVCC</div>
+      <h2>Version mới chỉ ghi những row thay đổi</h2>
+      <div class="mvcc-flow">
+        <div>
+          <div class="finding"><b>SNAPSHOT</b><p>B và C đọc cùng metadata version.</p></div>
+          <div class="finding"><b>DELTA</b><p>Mỗi transaction tạo Parquet file chỉ chứa row đã thay đổi.</p></div>
+          <div class="finding"><b>VALIDATE</b><p>Commit so sánh version của target row, không so sánh toàn partition.</p></div>
+          <div class="finding"><b>RESULT</b><p>Key rời nhau cùng commit. Cùng key tạo conflict và retry.</p></div>
+          <div class="callout">Delete ghi tombstone. Compaction materialize snapshot mới và thay thế file list sau partition validation.</div>
+        </div>
+        <div class="versions">
+          <div class="version"><strong>Base snapshot</strong><br><code>key_01 v12 = 8<br>key_12 v12 = 3</code></div>
+          <div class="version"><strong>Worker B delta</strong><br><code>key_01 v13 = 9</code></div>
+          <div class="version"><strong>Worker C delta</strong><br><code>key_12 v14 = 4</code></div>
+        </div>
+      </div>
+      <div class="slide-no">08</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Thiết kế benchmark</div>
+      <h2>So sánh cùng workload, seed và oracle</h2>
+      <div class="setup-grid">
+        <div class="setup-list">
+          <div><p>Tạo immutable operation plan trước khi chạy.</p></div>
+          <div><p>Khởi động worker bằng một barrier chung.</p></div>
+          <div><p>Ghi attempt, conflict, retry, latency và physical bytes.</p></div>
+          <div><p>Freeze final snapshot sau khi tất cả worker kết thúc.</p></div>
+          <div><p>Oracle tính expected rows độc lập từ committed operation IDs.</p></div>
+        </div>
+        <aside class="spec">
+          <h3>Cấu hình kết quả trên deck</h3>
+          <dl>
+            <dt>Ma trận</dt><dd>6 scenario × 6 policy</dd>
+            <dt>Lặp lại</dt><dd>3 run mỗi cặp</dd>
+            <dt>Dữ liệu</dt><dd>8 partition × 100 rows</dd>
+            <dt>Workload mỗi run</dt><dd>5 append, 20 mutation, 2 maintenance</dd>
+            <dt>Số liệu trình bày</dt><dd>Median của 3 run</dd>
+          </dl>
+        </aside>
+      </div>
+      <div class="source">Benchmark thực hiện local ngày 04/10/2026. Cấu hình nhỏ để kiểm tra cơ chế, không phải capacity benchmark.</div>
+      <div class="slide-no">09</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Kết quả correctness và completion</div>
+      <h2>Mọi final state đều đúng, nhưng P0–P1 bỏ dở nhiều operation</h2>
+      <div class="kpi-row">
+        <div class="kpi"><strong>108/108</strong><span>run qua correctness oracle</span></div>
+        <div class="kpi"><strong>0</strong><span>lost update trên toàn benchmark</span></div>
+        <div class="kpi"><strong>0</strong><span>wrong final row trên toàn benchmark</span></div>
+      </div>
+      <table class="heatmap">
+        <thead><tr><th>Completion</th><th>P0</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th></tr></thead>
+        <tbody>
+          <tr><td>S1</td><td class="heat-low">44%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td></tr>
+          <tr><td>S2</td><td class="heat-low">52%</td><td class="heat-low">56%</td><td class="heat-90">96%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td></tr>
+          <tr><td>S3</td><td class="heat-low">48%</td><td class="heat-low">52%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td></tr>
+          <tr><td>S4</td><td class="heat-low">44%</td><td class="heat-low">48%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td></tr>
+          <tr><td>S5</td><td class="heat-low">44%</td><td class="heat-low">48%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td></tr>
+          <tr><td>S6</td><td class="heat-low">42%</td><td class="heat-low">54%</td><td class="heat-90">96%</td><td class="heat-100">100%</td><td class="heat-100">100%</td><td class="heat-100">100%</td></tr>
+        </tbody>
+      </table>
+      <div class="source">Ô hiển thị median completion ratio. Correctness áp dụng cho committed operations, vì vậy cần đọc completion cùng throughput.</div>
+      <div class="slide-no">10</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Kết quả throughput</div>
+      <h2>Policy tốt nhất thay đổi theo conflict pattern</h2>
+      <div class="bars">
+        <div class="bar-row"><div class="bar-label">S1</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-value">107.7/s</div><div class="bar-policy">P2</div></div>
+        <div class="bar-row"><div class="bar-label">S2</div><div class="bar-track"><div class="bar-fill" style="width:56%"></div></div><div class="bar-value">59.9/s</div><div class="bar-policy">P5</div></div>
+        <div class="bar-row"><div class="bar-label">S3</div><div class="bar-track"><div class="bar-fill" style="width:63%"></div></div><div class="bar-value">67.3/s</div><div class="bar-policy">P2</div></div>
+        <div class="bar-row"><div class="bar-label">S4</div><div class="bar-track"><div class="bar-fill" style="width:51%"></div></div><div class="bar-value">55.4/s</div><div class="bar-policy">P2</div></div>
+        <div class="bar-row"><div class="bar-label">S5</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="bar-value">53.9/s</div><div class="bar-policy">P3</div></div>
+        <div class="bar-row"><div class="bar-label">S6</div><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><div class="bar-value">44.9/s</div><div class="bar-policy">P5</div></div>
+      </div>
+      <div class="two-col" style="margin-top:32px">
+        <div class="callout"><strong>P5 nổi bật ở S2:</strong> full completion trong cùng partition với p95 104 ms. Row-level validation giữ concurrency cho key rời nhau.</div>
+        <div class="callout" style="border-color:var(--coral);background:#f8e2dc"><strong>P4 đúng nhưng chậm:</strong> full completion ở mọi scenario, nhưng p95 đạt 228–322 ms trong các workload tranh chấp.</div>
+      </div>
+      <div class="source">Thanh thể hiện policy có median CorrectCommitThroughput cao nhất trong nhóm có median completion 100%. Đơn vị: commit/giây.</div>
+      <div class="slide-no">11</div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Kết luận</div>
+      <h2>Không có một policy thắng mọi workload</h2>
+      <div class="two-col">
+        <div>
+          <div class="finding"><b>S1</b><p>Partition validation loại bỏ conflict giả và tăng throughput hơn 2 lần so với global OCC.</p></div>
+          <div class="finding"><b>S2</b><p>Row MVCC giữ full completion cho key rời nhau trong cùng partition.</p></div>
+          <div class="finding"><b>S3–S4</b><p>Retry OCC phù hợp hơn khi cùng key và compaction tạo conflict thật.</p></div>
+          <div class="finding"><b>S5–S6</b><p>Selective coordination hoặc MVCC đạt full completion, nhưng maintenance làm tăng latency.</p></div>
+        </div>
+        <div>
+          <h3>Diễn giải có giới hạn</h3>
+          <ul class="clean">
+            <li>Benchmark chạy trên một máy và filesystem local.</li>
+            <li>Chỉ có 3 repetition với workload nhỏ.</li>
+            <li>Simulator giữ metadata lock ngắn cho mọi commit.</li>
+            <li>Kết quả chưa đo crash recovery hoặc multi-host storage.</li>
+          </ul>
+          <div class="callout" style="margin-top:24px"><strong>Bước tiếp theo:</strong> tăng số repetition, thêm confidence interval và chạy lại cùng logical workload trên Delta Lake hoặc Iceberg.</div>
+        </div>
+      </div>
+      <div class="slide-no">12</div>
+    </section>
+  </main>
+
+  <nav class="nav" aria-label="Điều hướng slide">
+    <button id="prev" aria-label="Slide trước">‹</button>
+    <div class="progress"><span id="progress"></span></div>
+    <div class="nav-count" id="count">1 / 12</div>
+    <button id="next" aria-label="Slide sau">›</button>
+  </nav>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    let index = 0;
+    const count = document.getElementById('count');
+    const progress = document.getElementById('progress');
+
+    function show(next) {
+      index = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      count.textContent = `${index + 1} / ${slides.length}`;
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+      history.replaceState(null, '', `#${index + 1}`);
+    }
+    document.getElementById('prev').addEventListener('click', () => show(index - 1));
+    document.getElementById('next').addEventListener('click', () => show(index + 1));
+    document.addEventListener('keydown', event => {
+      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) show(index + 1);
+      if (['ArrowLeft', 'PageUp'].includes(event.key)) show(index - 1);
+      if (event.key === 'Home') show(0);
+      if (event.key === 'End') show(slides.length - 1);
+    });
+    const initial = Number(location.hash.slice(1));
+    show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  </script>
+</body>
+</html>
